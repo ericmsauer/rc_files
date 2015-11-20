@@ -6,10 +6,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle'
 
+"Plugin 'vim-scripts/pylint-mode'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'andviro/flake8-vim'
+Plugin 'kien/rainbow_parentheses.vim'
+" Plugin 'andviro/flake8-vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " All of your Plugins must be added before the following line
@@ -25,21 +27,15 @@ set encoding=utf-8
 
 "Indentation
 "Tabs are 4 spaces
-set tabstop=4
+set tabstop=2
 "Visual shift is 4 spaces
-set shiftwidth=4
+set shiftwidth=2
 "Auto tab"
 set smarttab
 "Tabs are spaces"
 set expandtab
 "Auto indent lines
 set autoindent
-
-"Pep8/Flake8
-let g:PyFlakeOnWrite = 1
-let g:PyFlakeCheckers = 'pep8,mccabe,frosted'
-let g:PyFlakeDisabledMessages = 'E126,E501'
-let g:PyFlakeMaxLineLength = 120
 
 "Other
 "Enable use of mouse
@@ -53,7 +49,7 @@ set wildmenu
 "?
 set showcmd
 "Line under currently selected line
-set cursorline
+"set cursorline
 "Show matched open/close case
 set showmatch
 "Enable syntax highlighting
@@ -63,4 +59,11 @@ set incsearch
 "Spell Check
 setlocal spell spelllang=en_us
 "Default no spelling
-set nospell
+"set nospell
+"No swap file
+set noswapfile
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
